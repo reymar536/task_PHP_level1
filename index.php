@@ -45,7 +45,21 @@ $date= date("d-m-Y");
            $i=$i+1;     
         } while($i <= 10)   
     ?>
+    <h2> Задание №3</h2>        
+    <?php 
+        $regionArray['Московская область'] = array('Москва', 'Зеленоград', 'Клин');
+        $regionArray['Ленинградская область'] = array('Санкт-Петербург', 'Всеволожск', 'Павловск', 'Кронштадт'); 
+        $regionArray['Рязанская область'] = array('Рязань', 'Спасск-Рязанский', 'Михайлов', 'Новомичуринск'); 
 
+        foreach ( $regionArray as $region_key => $region_value)
+        {
+            echo  "<strong>$region_key</strong><br/>";
+            for ( $i = 0 ; $i < count ($region_value); $i ++)   
+            {
+                echo "$region_value[$i]<br/>"; 
+            }
+        }
+    ?>
 
 <hr>
 <footer>&copy; <?php echo date('Y'); ?> Все права защищены.</footer>
