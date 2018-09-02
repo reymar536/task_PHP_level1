@@ -34,19 +34,20 @@ $date= date("d-m-Y");
         do {
            $p = $i%2; 
            if ($i==0){
-                echo "Это ноль <br>";   
+                echo "$i - Это ноль <br>";   
            }  
            elseif($p==0){
-                echo "Это четное число <br>";  
+                echo "$i - четное число <br>";  
            }
            else{
-                echo "Это нечетное число <br>"; 
+                echo "$i - нечетное число <br>"; 
            }
            $i=$i+1;     
         } while($i <= 10)   
     ?>
 
 
+<hr>
 <footer>&copy; <?php echo date('Y'); ?> Все права защищены.</footer>
 </body>
 </html>
