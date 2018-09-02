@@ -1,3 +1,9 @@
+<?php
+$t1='Домашнее задание к урокам базовый курс PHP';
+$h1 = 'Домашнее задание к уроку 3';
+$date= date("d-m-Y");
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -9,8 +15,38 @@
     <script src="main.js"></script>
 </head>
 <body>
+    <h1><?=$h1?></h1>
+	<p><?=$date?></p>
+	<h2> Задание №1</h2>
+    <?php 
+        $i = 0;
+        while($i <= 100){
+           $p = $i%3; 
+           if ($p==0){
+            echo "$i <br>";   
+           }     
+           $i=$i+1;     
+        }
+    ?>
+    <h2> Задание №2</h2>    
+    <?php 
+        $i = 0;
+        do {
+           $p = $i%2; 
+           if ($i==0){
+                echo "Это ноль <br>";   
+           }  
+           elseif($p==0){
+                echo "Это четное число <br>";  
+           }
+           else{
+                echo "Это нечетное число <br>"; 
+           }
+           $i=$i+1;     
+        } while($i <= 10)   
+    ?>
 
 
-
+<footer>&copy; <?php echo date('Y'); ?> Все права защищены.</footer>
 </body>
 </html>
