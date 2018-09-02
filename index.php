@@ -102,6 +102,63 @@ $date= date("d-m-Y");
         $str = "Hello Friend";
         echo my_str_replace($str);
     ?>
+    <h2>Задание №6</h2>  
+    <?php
+        $menu = array( 
+            array('id'=>1,'title'=>'Menu 1',          'parent_id'=>null),
+            array('id'=>2,'title'=>'Sub 1.1',         'parent_id'=>1),
+            array('id'=>3,'title'=>'Sub 1.2',         'parent_id'=>1),
+            array('id'=>4,'title'=>'Sub 1.3',         'parent_id'=>1),
+            array('id'=>5,'title'=>'Menu 2',          'parent_id'=>null),
+            array('id'=>6,'title'=>'Sub 2.1',         'parent_id'=>5),
+            array('id'=>7,'title'=>'Sub Sub 2.1.1',   'parent_id'=>6),
+            array('id'=>8,'title'=>'Sub 2.2',         'parent_id'=>5),
+            array('id'=>9,'title'=>'Menu 3',          'parent_id'=>null),
+        );
+        
+        function has_children($rows,$id) {
+            foreach ($rows as $row) {
+              if ($row['parent_id'] == $id)
+                return true;
+            }
+            return false;
+        }
+
+        function build_menu($rows,$parent=0)
+        {  
+            $result = "<ul>";
+            foreach ($rows as $row)
+            {
+              if ($row['parent_id'] == $parent){
+                $result.= "<li>{$row['title']}";
+                if (has_children($rows,$row['id']))
+                  $result.= build_menu($rows,$row['id']);
+                $result.= "</li>";
+              }
+            }
+            $result.= "</ul>";
+          
+            return $result;
+        }
+        echo build_menu($menu);
+    ?>
+    <h2>Задание №7</h2>  
+    <?php
+        for($i=0;$i<10;print $i++){ };
+    ?>    
+    <h2>Задание №8</h2>  
+    <?php
+        foreach ( $regionArray as $region_key => $region_value)
+        {
+            echo  "<strong>$region_key</strong><br/>";
+            foreach ($region_value as $key => $value)   
+            {
+                if(substr($value,0,2)=='К'){
+                    echo "$value<br/>";     
+                }
+            }
+        }
+    ?>  
 
 <hr>
 <footer>&copy; <?php echo date('Y'); ?> Все права защищены.</footer>
