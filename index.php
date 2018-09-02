@@ -86,6 +86,22 @@ $date= date("d-m-Y");
         }
         echo rus2translit("У попа была собака, он ее любил.");
     ?>
+    <h2> Задание №5</h2>  
+    <?php
+        function my_str_replace($string){
+            $arr1 = str_split($string); 
+            for ( $i = 0 ; $i < count ($arr1); $i ++)
+            {
+                if ($arr1[$i]==' '){
+                    $arr1[$i]='_'; 
+                }
+            }
+            return implode ('', $arr1);  
+        }
+            
+        $str = "Hello Friend";
+        echo my_str_replace($str);
+    ?>
 
 <hr>
 <footer>&copy; <?php echo date('Y'); ?> Все права защищены.</footer>
